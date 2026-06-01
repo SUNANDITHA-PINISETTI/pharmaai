@@ -9,7 +9,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>AI Assistant</title>
+<title>Aurevia AI Assistant</title>
 
 <link
 href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -28,7 +28,7 @@ body{
 
 font-family:'Poppins',sans-serif;
 
-background:#0f172a;
+background:#f8fafc;
 
 height:100vh;
 
@@ -36,7 +36,7 @@ overflow:hidden;
 
 display:flex;
 
-color:white;
+color:#1e293b;
 
 }
 
@@ -47,11 +47,9 @@ color:white;
 
 width:320px;
 
-background:linear-gradient(
-180deg,
-#111827,
-#1e293b
-);
+background:rgba(255,255,255,0.92);
+
+backdrop-filter:blur(15px);
 
 padding:25px;
 
@@ -109,7 +107,7 @@ overflow-y:auto;
 
 .history-item{
 
-background:rgba(255,255,255,0.08);
+background:rgba(101, 127, 105, 0.08);
 
 padding:18px;
 
@@ -125,7 +123,7 @@ transition:0.3s;
 
 .history-item:hover{
 
-background:rgba(255,255,255,0.15);
+background:rgba(126, 33, 33, 0.15);
 
 }
 
@@ -140,15 +138,21 @@ display:flex;
 flex-direction:column;
 
 background:
+
 linear-gradient(
-rgba(2,6,23,0.85),
-rgba(2,6,23,0.85)
+rgba(255,255,255,0.55),
+rgba(255,255,255,0.65)
 ),
 
-url('https://images.unsplash.com/photo-1579165466741-7f35e4755660?auto=format&fit=crop&w=2000&q=80');
+url("https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=2000&q=80");
+
 background-size:cover;
 
 background-position:center;
+
+background-repeat:no-repeat;
+
+background-attachment:fixed;
 
 }
 
@@ -163,7 +167,7 @@ font-size:40px;
 
 font-weight:700;
 
-border-bottom:1px solid rgba(255,255,255,0.08);
+border-bottom:1px solid rgba(217, 0, 0, 0.08);
 
 backdrop-filter:blur(12px);
 
@@ -209,17 +213,27 @@ white-space:pre-wrap;
 
 .bot{
 
-background:rgba(255,255,255,0.08);
+background:rgba(255,255,255,0.88);
 
-backdrop-filter:blur(10px);
+backdrop-filter:blur(15px);
+
+color:#1e293b;
 
 align-self:flex-start;
+
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
 
 }
 
 .user{
 
-background:#2563eb;
+background:linear-gradient(
+135deg,
+#2563eb,
+#60a5fa
+);
+
+color:white;
 
 align-self:flex-end;
 
@@ -230,53 +244,81 @@ align-self:flex-end;
 
 .input-area{
 
-padding:25px;
+position:sticky;
+
+bottom:0;
 
 display:flex;
 
-gap:15px;
+gap:18px;
 
-border-top:1px solid rgba(255,255,255,0.08);
+padding:20px;
 
-backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.95);
+
+backdrop-filter:blur(15px);
+
+border-top:1px solid #dbeafe;
+
+z-index:999;
 
 }
+
+/* INPUT BOX */
 
 .input-area input{
 
 flex:1;
 
-padding:22px;
+height:65px;
+
+padding:0 25px;
 
 border:none;
 
-border-radius:20px;
+border-radius:18px;
 
-font-size:17px;
+background:#ffffff;
 
-background:rgba(255,255,255,0.08);
+color:#1e293b;
 
-color:white;
+font-size:18px;
+
+font-weight:500;
 
 outline:none;
 
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+
 }
+
+/* PLACEHOLDER */
 
 .input-area input::placeholder{
 
-color:#cbd5e1;
+color:#64748b;
+
+opacity:1;
 
 }
 
+/* SEND BUTTON */
+
 .input-area button{
 
-padding:0 35px;
+width:140px;
+
+height:65px;
 
 border:none;
 
-border-radius:20px;
+border-radius:18px;
 
-background:#2563eb;
+background:linear-gradient(
+135deg,
+#2563eb,
+#60a5fa
+);
 
 color:white;
 
@@ -325,7 +367,7 @@ font-size:28px;
 <div class="sidebar">
 
 <div class="logo">
-AI
+Aurevia AI Assistant
 </div>
 
 <button class="new-chat" onclick="newChat()">
@@ -359,7 +401,7 @@ Contamination Analysis
 <div class="main">
 
 <div class="header">
-Assistant
+Aurevia AI Assistant
 </div>
 
 
@@ -371,7 +413,7 @@ Assistant
 
 Hello 👋
 
-Welcome to AI Assistant.
+Welcome to Aurevia AI Assistant.
 
 Ask about:
 - batch analysis

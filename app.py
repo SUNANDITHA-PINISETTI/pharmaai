@@ -6,6 +6,7 @@ from flask import redirect
 from flask import session
 from flask import url_for
 from flask import jsonify
+from sqlalchemy import create_engine
 
 import pandas as pd
 
@@ -28,10 +29,16 @@ app.secret_key = "secret123"
 # MYSQL CONNECTION
 # =====================================================
 
-engine = create_engine(
-    "mysql+mysqlconnector://root:Team%40work123@localhost/production_db"
-)
+from sqlalchemy import create_engine
 
+DATABASE_URL = os.getenv("DATABASE_URL")
+if DATABASE_URL:
+    DATABASE_URL = DATABASE_URL.replace(
+        "mysql://",
+        "mysql+mysqlconnector://"
+    )
+
+engine = create_engine(DATABASE_URL)
 
 # =====================================================
 # UPLOAD FOLDER
