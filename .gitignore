@@ -1,4 +1,10 @@
+
 uploads/
+data/
+extracted_data/
+production report/
+*.pdf
+*.csv
 __pycache__/
 *.pyc
 .env
