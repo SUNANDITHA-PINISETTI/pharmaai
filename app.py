@@ -14,7 +14,7 @@ from sqlalchemy import create_engine
 
 import os
 import re
-import fitz
+
 
 # =====================================================
 # FLASK APP
