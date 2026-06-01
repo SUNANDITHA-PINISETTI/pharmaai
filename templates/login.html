@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title> Pharma console Login</title>
+
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+overflow:hidden;
+
+background:
+
+linear-gradient(
+rgba(255,255,255,.55),
+rgba(255,255,255,.65)
+),
+
+url("https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=2000&q=80");
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
+position:relative;
+
+}
+
+/* GLOW EFFECT */
+
+body::before,
+body::after{
+
+content:'';
+
+position:absolute;
+
+border-radius:50%;
+
+filter:blur(100px);
+
+z-index:0;
+
+}
+
+body::before{
+
+width:350px;
+height:350px;
+
+background:#2563eb;
+
+top:-100px;
+left:-80px;
+
+opacity:.25;
+
+}
+
+body::after{
+
+width:300px;
+height:300px;
+
+background:#2dd4bf;
+
+bottom:-100px;
+right:-50px;
+
+opacity:.25;
+
+}
+
+/* LOGIN CARD */
+
+.login-box{
+
+position:relative;
+
+z-index:2;
+
+width:450px;
+
+padding:45px;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.92);
+
+backdrop-filter:blur(15px);
+
+border:
+1px solid rgba(0,0,0,.08);
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.18);
+
+text-align:center;
+
+color:#1e293b;
+
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* LOGO */
+
+.logo{
+
+width:230px;
+
+background:white;
+
+padding:10px;
+
+border-radius:14px;
+
+margin-bottom:25px;
+
+}
+
+/* TITLE */
+
+.login-box h2{
+
+font-weight:600;
+
+margin-bottom:10px;
+
+}
+
+.subtitle{
+
+font-size:14px;
+
+color:#64748b;
+
+margin-bottom:30px;
+
+}
+
+/* LABELS */
+
+.form-label{
+
+display:block;
+
+text-align:left;
+
+margin-bottom:8px;
+
+color:#334155;
+
+font-weight:500;
+
+}
+/* INPUT */
+
+.input-group{
+
+position:relative;
+
+margin-bottom:22px;
+
+}
+
+.form-control{
+
+height:52px;
+
+border:1px solid #cbd5e1;
+
+background:white;
+
+color:#0f172a;
+
+border-radius:12px;
+
+padding-left:18px;
+
+}
+.form-control::placeholder{
+
+color:#d1d5db;
+
+}
+
+.form-control:focus{
+
+background:
+rgba(255,255,255,.18);
+
+color:white;
+
+box-shadow:
+0 0 0 3px rgba(37,99,235,.35);
+
+border:none;
+
+}
+
+/* PASSWORD TOGGLE */
+
+.toggle{
+
+position:absolute;
+
+right:18px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+cursor:pointer;
+
+font-size:18px;
+
+color:#d1d5db;
+
+}
+
+/* OPTIONS */
+
+.options{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:25px;
+
+font-size:14px;
+
+}
+
+.options a{
+
+color:#93c5fd;
+
+text-decoration:none;
+
+}
+
+/* BUTTON */
+
+.btn-login{
+
+width:100%;
+
+height:54px;
+
+border:none;
+
+border-radius:12px;
+
+background:
+linear-gradient(
+135deg,
+#0f4c81,
+#2563eb
+);
+
+font-weight:600;
+
+font-size:16px;
+
+color:white;
+
+}
+
+.btn-login:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+0 10px 20px rgba(37,99,235,.35);
+
+}
+
+/* ERROR */
+
+.error{
+
+margin-top:15px;
+
+color:#ff6b6b;
+
+font-size:14px;
+
+}
+
+/* FOOTER */
+
+.footer-text{
+
+margin-top:20px;
+
+font-size:13px;
+
+color:#cbd5e1;
+
+}
+
+@media(max-width:450px){
+
+.login-box{
+
+width:92%;
+
+padding:35px 25px;
+
+}
+
+.logo{
+
+width:180px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+
+
+<h2>
+ProdiQ
+</h2>
+
+<p class="subtitle">
+Manufacturing Intelligence Platform
+</p>
+
+<form method="POST" action="/login">
+
+<label class="form-label">
+
+Username
+
+</label>
+
+<div class="input-group">
+
+<input
+type="text"
+name="username"
+class="form-control"
+placeholder="Enter username"
+required>
+
+</div>
+
+
+<label class="form-label">
+
+Password
+
+</label>
+
+<div class="input-group">
+
+<input
+type="password"
+id="password"
+name="password"
+class="form-control"
+placeholder="Enter password"
+required>
+
+<span
+class="toggle"
+onclick="togglePassword()">
+
+👁
+
+</span>
+
+</div>
+
+<div class="options">
+
+<div>
+
+<input
+type="checkbox"
+id="remember">
+
+<label for="remember">
+
+Remember me
+
+</label>
+
+</div>
+
+<a href="#">
+
+Forgot Password?
+
+</a>
+
+</div>
+
+<button type="submit" class="btn-login">
+Login
+</button>
+
+
+</form>
+
+{% if error %}
+
+<div class="error">
+
+{{ error }}
+
+</div>
+
+{% endif %}
+
+<div class="footer-text">
+
+© 2026  Pharma
+
+</div>
+
+</div>
+
+<script>
+
+function togglePassword(){
+
+const pwd=
+document.getElementById(
+"password"
+);
+
+pwd.type=
+pwd.type==="password"
+?
+"text"
+:
+"password";
+
+}
+
+</script>
+
+</body>
+</html>

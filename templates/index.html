@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> Pharma console </title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:
+
+linear-gradient(
+rgba(255,255,255,0.55),
+rgba(255,255,255,0.65)
+),
+
+url("https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=2000&q=80");
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
+background-attachment:fixed;
+
+min-height:100vh;
+
+overflow-x:hidden;
+
+color:#1e293b;
+
+}
+
+/* NAVBAR */
+.navbar-custom{
+
+background:white;
+
+padding:18px 50px;
+
+box-shadow:0 2px 15px rgba(0,0,0,0.08);
+
+border-bottom:1px solid #e2e8f0;
+
+}
+
+/* HERO */
+
+.hero{
+
+min-height:90vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+}
+
+.hero h1{
+
+font-size:72px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+color:#0f172a;
+
+}
+
+.hero p{
+
+font-size:22px;
+
+color:#334155;
+
+margin-bottom:40px;
+
+max-width:850px;
+
+line-height:1.8;
+
+font-weight:500;
+
+}
+
+/* BUTTON */
+
+.upload-btn{
+
+background:
+linear-gradient(
+135deg,
+#0f4c81,
+#2563eb
+);
+
+color:white;
+
+padding:18px 42px;
+
+border-radius:12px;
+
+text-decoration:none;
+
+font-size:18px;
+
+font-weight:600;
+
+transition:0.3s;
+
+box-shadow:0 10px 25px rgba(37,99,235,0.25);
+
+}
+.upload-btn:hover{
+
+transform:translateY(-4px);
+
+color:white;
+
+}
+
+/* STATS */
+
+.stats{
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+margin-top:50px;
+
+flex-wrap:wrap;
+
+}
+
+.stat-card{
+
+width:260px;
+
+background:white;
+
+padding:35px;
+
+border-radius:18px;
+
+border:1px solid #e2e8f0;
+
+text-align:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+transition:0.3s;
+
+}
+
+.stat-card:hover{
+
+transform:translateY(-6px);
+
+}
+
+.stat-card h2{
+
+font-size:48px;
+
+font-weight:700;
+
+margin-bottom:10px;
+
+color:#0f4c81;
+
+}
+
+.stat-card p{
+
+color:#64748b;
+
+font-size:16px;
+
+}
+
+/* CHAT BUTTON */
+
+.chat-btn{
+
+position:fixed;
+
+bottom:30px;
+
+right:30px;
+
+width:75px;
+
+height:75px;
+
+border-radius:50%;
+
+background:
+linear-gradient(
+135deg,
+#0f4c81,
+#2563eb
+);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:32px;
+
+text-decoration:none;
+
+color:white;
+
+box-shadow:0 8px 25px rgba(0,0,0,0.20);
+
+transition:.3s;
+
+z-index:999;
+
+}
+
+.chat-btn:hover{
+
+transform:scale(1.08);
+
+color:white;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+.stat-card{
+
+width:100%;
+
+max-width:320px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+
+
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>
+PRODIQ
+</h1>
+
+<p>
+AI-Driven Pharma Manufacturing Platform for Quality Monitoring and Process Excellence.
+</p>
+
+<a href="/upload" class="upload-btn">
+Upload New Batch
+</a>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat-card">
+
+<h2>{{ total }}</h2>
+
+<p>Uploaded Files</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>30+</h2>
+
+<p>Manufacturing Units</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>AI</h2>
+
+<p>Smart Monitoring Active</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CHATBOT -->
+
+<a href="/chatbot" class="chat-btn">
+💬
+</a>
+
+</body>
+</html>

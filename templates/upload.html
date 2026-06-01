@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Upload Manufacturing Batch</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:
+
+linear-gradient(
+rgba(255,255,255,.65),
+rgba(255,255,255,.75)
+),
+
+url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2000&q=80");
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
+background-attachment:fixed;
+
+min-height:100vh;
+
+overflow-x:hidden;
+
+color:#1e293b;
+
+}
+
+/* NAVBAR */
+
+.navbar-custom{
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(14px);
+
+padding:15px 40px;
+
+}
+
+.logo{
+
+height:60px;
+
+}
+
+/* PAGE */
+
+.page-wrapper{
+
+padding:60px 20px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+/* CARD */
+
+.upload-card{
+
+width:100%;
+
+max-width:1000px;
+
+background:white;
+
+padding:45px;
+
+border-radius:20px;
+
+border:1px solid #e2e8f0;
+
+box-shadow:0 10px 35px rgba(0,0,0,0.10);
+
+}
+/* TITLE */
+
+.page-title{
+
+font-size:52px;
+
+font-weight:700;
+
+text-align:center;
+
+margin-bottom:10px;
+
+color:#0f172a;
+
+}
+
+.page-subtitle{
+
+text-align:center;
+
+color:#64748b;
+
+margin-bottom:40px;
+
+font-size:18px;
+
+}
+
+/* INPUTS */
+
+.form-label{
+
+font-weight:600;
+
+margin-bottom:10px;
+
+color:#334155;
+
+}
+
+
+.form-control,
+.form-select{
+
+height:58px;
+
+border-radius:12px;
+
+background:white;
+
+border:1px solid #cbd5e1;
+
+color:#0f172a;
+
+}
+
+.form-control::placeholder{
+
+color:rgba(255,255,255,0.6);
+
+}
+
+textarea.form-control{
+
+height:140px;
+
+padding-top:15px;
+
+resize:none;
+
+}
+
+select option{
+
+color:black;
+
+}
+
+/* UPLOAD BOX */
+
+.upload-box{
+
+border:2px dashed #94a3b8;
+
+border-radius:18px;
+
+padding:60px;
+
+text-align:center;
+
+cursor:pointer;
+
+background:#f8fafc;
+
+transition:.3s;
+
+margin-top:10px;
+
+color:#334155;
+
+}
+
+.upload-box:hover{
+
+background:rgba(255,255,255,0.12);
+
+transform:translateY(-3px);
+
+}
+
+.upload-icon{
+
+font-size:60px;
+
+margin-bottom:15px;
+
+}
+
+/* BUTTONS */
+
+.btn-wrapper{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+margin-top:40px;
+
+flex-wrap:wrap;
+
+}
+
+.submit-btn{
+
+background:
+linear-gradient(
+135deg,
+#0f4c81,
+#2563eb
+);
+
+color:white;
+
+border:none;
+
+padding:16px 42px;
+
+border-radius:12px;
+
+font-weight:600;
+
+font-size:17px;
+
+}
+
+.cancel-btn{
+
+background:rgba(255,255,255,0.1);
+
+color:white;
+
+border:none;
+
+padding:16px 42px;
+
+border-radius:14px;
+
+font-weight:600;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.upload-card{
+
+padding:25px;
+
+}
+
+.page-title{
+
+font-size:36px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+
+
+
+</nav>
+
+<!-- PAGE -->
+
+<div class="page-wrapper">
+
+<div class="upload-card">
+
+
+<h1 class="page-title">
+Manufacturing Batch Upload
+</h1>
+
+<p class="page-subtitle">
+Manufacturing Intelligence Platform
+</p>
+
+{% if success %}
+<div class="alert alert-success text-center mb-4">
+    ✅ Batch Uploaded Successfully!
+</div>
+
+<script>
+setTimeout(function(){
+    window.location.href="/";
+},2000);
+</script>
+{% endif %}
+
+{% if error %}
+<div class="alert alert-danger text-center mb-4">
+    {{ error }}
+</div>
+{% endif %}
+
+<form
+action="/upload"
+method="POST"
+enctype="multipart/form-data"
+>
+
+<div class="row">
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+Batch ID
+</label>
+
+<input
+type="text"
+name="batch_id"
+class="form-control"
+placeholder="Enter Batch ID"
+>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+Manufacturing Unit
+</label>
+
+<select
+name="unit"
+class="form-select">
+
+<option>Select Unit</option>
+
+<option>Unit 1</option>
+<option>Unit 2</option>
+<option>Unit 3</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+Product Name
+</label>
+
+<input
+type="text"
+name="product_name"
+class="form-control"
+placeholder="Enter Product Name"
+>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+Batch Date
+</label>
+
+<input
+type="date"
+name="batch_date"
+class="form-control"
+>
+</div>
+
+<div class="col-12 mb-4">
+
+<label class="form-label">
+Batch Description
+</label>
+
+<textarea
+name="description"
+class="form-control"
+placeholder="Enter manufacturing details..."
+></textarea>
+
+</div>
+
+<div class="col-12">
+
+<label class="form-label">
+Upload Manufacturing File
+</label>
+
+<div
+class="upload-box"
+onclick="document.getElementById('fileInput').click()"
+>
+
+<div class="upload-icon">
+📁
+</div>
+
+<div>
+
+Drag & Drop files here<br>
+
+or click to browse
+
+</div>
+
+<input
+type="file"
+name="file"
+id="fileInput"
+accept=".pdf,.csv"
+style="display:none;"
+>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="btn-wrapper">
+
+<button type="submit" class="submit-btn">
+Upload Batch
+</button>
+
+<button
+type="button"
+class="cancel-btn"
+onclick="window.location.href='/'"
+>
+Cancel
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>
