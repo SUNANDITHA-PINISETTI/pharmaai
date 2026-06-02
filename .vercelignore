@@ -2,5 +2,6 @@ data/
 production report/
 extracted_data/
 uploads/
+__pycache__/
 *.csv
 *.pdf
